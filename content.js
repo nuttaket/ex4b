@@ -6,3 +6,22 @@ var content =
 {"id":5,"name":"Hua Hin","desc":"Hua Hin is one of the top tourist destinations of Thailand from its great amount of attractions and activities - plus it isn’t far from Bangkok. The city has many incredible Beaches, mountains, viewpoints, Temples, night markets, water parks, and fine diners for you to choose from and enjoy at any time of the year."},
 {"id":6,"name":"Damnoen saduak floating market","desc":"Damnoen saduak Floating Market in Ratchaburi is one of the most popular floating markets in Thailand. Every day many Thai and foreign tourists travel here to shop, eat, and absorb the atmosphere of Thailand water markets that have been like this for over a 100 years."}
 ]
+window.onload = function () {
+  content.forEach(item => {
+    const img = document.getElementById(item.id);
+    if (img) {
+      img.setAttribute(
+        "title",
+        item.name + " : " + item.desc
+      );
+    }
+  });
+
+  // เปิดใช้งาน Bootstrap tooltip
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+};
